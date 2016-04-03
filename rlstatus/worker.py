@@ -1,4 +1,5 @@
 import os
+import time
 import sqlite3
 import logging
 
@@ -23,7 +24,9 @@ def main():
         except:
             LOG.exception('unhandled error')
 
-        LOG.info('population collection done, sleeping for %s seconds', int(os.getenv('RLSTATUS_CHECK_INTERVAL', '60')))
+        sleep_seconds = int(os.getenv('RLSTATUS_CHECK_INTERVAL', '60'))
+        LOG.info('population collection done, sleeping for %s seconds', sleep_seconds)
+        time.sleep(sleep_seconds)
 
 
 if __name__ == '__main__':
