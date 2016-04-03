@@ -4,6 +4,8 @@ import logging
 
 from rlclient import RocketLeagueClient
 
+LOG = logging.getLogger(__name__)
+
 
 def main():
     client = RocketLeagueClient()
@@ -22,6 +24,7 @@ def main():
             LOG.exception('unhandled error')
 
         LOG.info('population collection done, sleeping for %s seconds', int(os.getenv('RLSTATUS_CHECK_INTERVAL', '60')))
+
 
 if __name__ == '__main__':
     main()
